@@ -12,4 +12,6 @@ alias s2='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./
 
 alias c1='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/c1-test.js'
 
+alias c1gh='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/c1gh-test.js'
+
 alias swall='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/*-test.js'
