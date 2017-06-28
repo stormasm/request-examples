@@ -1,33 +1,16 @@
 /* @flow */
-/**
- *  Copyright (c) 2015, Facebook, Inc.
- *  All rights reserved.
- *
- *  This source code is licensed under the BSD-style license found in the
- *  LICENSE file in the root directory of this source tree. An additional grant
- *  of patent rights can be found in the PATENTS file in the same directory.
- */
-
-// 80+ char lines are useful in describe/it, so ignore in this file.
-/* eslint-disable max-len */
 
 import { expect } from "chai";
 import { describe, it } from "mocha";
-import sinon from "sinon";
+
 import { stringify } from "querystring";
-import url from "url";
-import zlib from "zlib";
-import multer from "multer";
-import bodyParser from "body-parser";
 import request from "supertest";
 import express4 from "express"; // modern
 import {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLNonNull,
-  GraphQLString,
-  GraphQLError,
-  BREAK
+  GraphQLString
 } from "graphql";
 import graphqlHTTP from "express-graphql";
 
@@ -89,12 +72,6 @@ function urlString(urlParams?: ?{ [param: string]: mixed }) {
   return string;
 }
 
-function promiseTo(fn) {
-  return new Promise((resolve, reject) => {
-    fn((error, result) => (error ? reject(error) : resolve(result)));
-  });
-}
-
 function server() {
   const app = express4();
   if (app.set) {
@@ -107,11 +84,6 @@ function server() {
     console.warn("App encountered an error:", error);
   });
   return app;
-}
-
-function get(app, ...args) {
-  // Connect only likes using app.use.
-  return app.get ? app.get(...args) : app.use(...args);
 }
 
 function post(app, ...args) {
@@ -170,5 +142,4 @@ describe("POST functionality", () => {
 
     expect(response.text).to.equal('{"data":{"test":"Hello World"}}');
   });
-  
 });
