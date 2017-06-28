@@ -25,28 +25,6 @@ const QueryRootType = new GraphQLObjectType({
         }
       },
       resolve: (root, { who }) => "Hello " + ((who: any) || "World")
-    },
-    nonNullThrower: {
-      type: new GraphQLNonNull(GraphQLString),
-      resolve: () => {
-        throw new Error("Throws!");
-      }
-    },
-    thrower: {
-      type: GraphQLString,
-      resolve: () => {
-        throw new Error("Throws!");
-      }
-    },
-    context: {
-      type: GraphQLString,
-      resolve: (obj, args, context) => context
-    },
-    contextDotFoo: {
-      type: GraphQLString,
-      resolve: (obj, args, context) => {
-        return (context: any).foo;
-      }
     }
   }
 });
