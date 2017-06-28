@@ -16,7 +16,7 @@ function urlString(urlParams?: ?{ [param: string]: mixed }) {
 
 describe("POST functionality", () => {
   it("allows POST with JSON encoding", async () => {
-    const response = await request("localhost:3000/")
+    const response = await request("https://api.github.com/graphql")
       .post(urlString())
       .send({ query: "{topic(name:\"plum\"){id name}}"});
       console.log(response.text);
