@@ -6,4 +6,6 @@ alias sw2='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require .
 
 alias sw3='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/post-test.js'
 
+alias s1='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/s1-test.js'
+
 alias swall='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/*-test.js'
