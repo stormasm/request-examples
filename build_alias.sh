@@ -10,4 +10,6 @@ alias s1='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./
 
 alias s2='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/variables-test.js'
 
+alias c1='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/c1-test.js'
+
 alias swall='./node_modules/.bin/babel-node ./node_modules/.bin/_mocha --require ./resources/mocha-bootload --check-leaks --full-trace ./test/*-test.js'
