@@ -120,56 +120,6 @@ function post(app, ...args) {
 }
 
 describe("POST functionality", () => {
-  it("allows POST with JSON encoding", async () => {
-    const app = server();
-
-    post(
-      app,
-      urlString(),
-      graphqlHTTP({
-        schema: TestSchema
-      })
-    );
-
-    const response = await request(app)
-      .post(urlString())
-      .send({ query: "{test}" });
-
-    expect(response.text).to.equal('{"data":{"test":"Hello World"}}');
-  });
-
-  it("Allows sending a mutation via POST", async () => {
-    const app = server();
-
-    post(app, urlString(), graphqlHTTP({ schema: TestSchema }));
-
-    const response = await request(app)
-      .post(urlString())
-      .send({ query: "mutation TestMutation { writeTest { test } }" });
-
-    expect(response.status).to.equal(200);
-    expect(response.text).to.equal(
-      '{"data":{"writeTest":{"test":"Hello World"}}}'
-    );
-  });
-
-  it("allows POST with url encoding", async () => {
-    const app = server();
-
-    post(
-      app,
-      urlString(),
-      graphqlHTTP({
-        schema: TestSchema
-      })
-    );
-
-    const response = await request(app)
-      .post(urlString())
-      .send(stringify({ query: "{test}" }));
-
-    expect(response.text).to.equal('{"data":{"test":"Hello World"}}');
-  });
 
   it("supports POST JSON query with string variables", async () => {
     const app = server();
