@@ -16,10 +16,11 @@ function urlString(urlParams?: ?{ [param: string]: mixed }) {
 
 describe("POST functionality", () => {
   it("allows POST with JSON encoding", async () => {
-    const response = await request("https://api.github.com/graphql")
+    const response = await request("https://api.github.com")
       .post(urlString())
+      .set('Authorization', 'Bearer ')
       .send({ query: "{topic(name:\"plum\"){id name}}"});
-      console.log(response.text);
+      //console.log(response.text);
       expect(response.text).to.equal('{"data":{"topic":{"id":"MDU6VG9waWNwbHVt","name":"plum"}}}');
   });
 });
