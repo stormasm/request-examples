@@ -1,10 +1,15 @@
-
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
+
+/*
 import {
     GithubSchema
 } from '../schema/githubSchema';
-//} from '../schema/starWarsSchema';
+*/
+
+import {
+    TestSchema
+} from '../schema/testSchema';
 
 const app = express();
 
@@ -14,7 +19,7 @@ app.all('/graphql', (req, res) => res.redirect('/'));
 app.use(
   '/',
   graphqlHTTP(() => ({
-    schema: GithubSchema,
+    schema: TestSchema,
     graphiql: true,
   })),
 );
