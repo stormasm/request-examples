@@ -5,14 +5,6 @@ import { describe, it } from "mocha";
 
 import { stringify } from "querystring";
 import request from "supertest";
-import express4 from "express"; // modern
-import {
-  GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLNonNull,
-  GraphQLString
-} from "graphql";
-import graphqlHTTP from "express-graphql";
 
 function urlString(urlParams?: ?{ [param: string]: mixed }) {
   let string = "/graphql";
